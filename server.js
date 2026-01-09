@@ -9,7 +9,9 @@ const port = process.env.PORT || 3000;
 // Importing the contact routes
 const contactsRoutes = require("./route/contact");
 
-app.use("/", contactsRoutes);
+app.get('/', (req, res) => {
+  res.send('Welcome to the Contact Management API');
+});
 app.use("/contacts", contactsRoutes);
 
 mongodb.initDb((err) => {

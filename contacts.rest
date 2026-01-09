@@ -1,0 +1,15 @@
+## Render URL
+GET https://cse-341-projects-ongc.onrender.com
+
+### Visit the homepage (local)
+GET http://localhost:3000
+
+### GET all contacts
+GET http://localhost:3000/contacts
+
+### Get single contact (local)
+GET http://localhost:3000/contacts/6960d7421f82d40d467017d0
+
+
+
+
