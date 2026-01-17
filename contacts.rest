@@ -10,6 +10,29 @@ GET http://localhost:3000/contacts
 ### Get single contact (local)
 GET http://localhost:3000/contacts/6960d7421f82d40d467017d0
 
+### create a new contact (local)
+POST http://localhost:3000/contacts
+Content-Type: application/json
 
+{
+  "firstName": "Samuel",
+  "lastName": "Sakyi",
+  "email": "sakyisamuel12@gmail.com",
+  "favoriteColor": "black",
+  "birthday": "1990-01-01"
+}
 
+### update a contact (local)
+PUT http://localhost:3000/contacts/696b56e30bb210710f342496
+Content-Type: application/json
 
+{
+  "firstName": "Samuel",
+  "lastName": "Sakyi",
+  "email": "sakyisamuel12@gmail.com",
+  "favoriteColor": "black",
+  "birthday": "1990-01-01"
+}
+
+### delete a contact (local)
+DELETE http://localhost:3000/contacts/696b592937973207d714a832

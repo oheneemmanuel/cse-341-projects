@@ -2,26 +2,39 @@ const express = require('express');
 const mongodb = require('./data/database');
 require('dotenv').config();
 
+
+
 const app = express();
 // the port to host the server in the browser
 const port = process.env.PORT || 3000;
 
-// Importing the contact routes
-const contactsRoutes = require("./route/contact");
+//middleware to parse JSON request bodies
+app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Welcome to the Contact Management API');
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  );
+  res.setHeader(
+    'Access-Control-Allow-Methods',
+    'GET, POST, PATCH, PUT, DELETE, OPTIONS'
+  );
+  next(); 
 });
-app.use("/contacts", contactsRoutes);
+
+
+
+
+app.use('/', require('./route/index'));
 
 mongodb.initDb((err) => {
   if (err) {
     console.log(err);
-  }
-  else {
+  } else {
     app.listen(port, () => {
       console.log(`Server is running on port: ${port}`);
     });
   }
-
 });
